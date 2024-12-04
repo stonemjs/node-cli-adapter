@@ -1,0 +1,105 @@
+{
+  "name": "@stone-js/node-cli-adapter",
+  "version": "0.0.0",
+  "description": "Stone.js Node CLI Adapter",
+  "author": "Mr. Stone <evensstone@gmail.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/stone-js/node-cli-adapter.git"
+  },
+  "homepage": "https://github.com/stone-js/node-cli-adapter#readme",
+  "bugs": {
+    "url": "https://github.com/stone-js/node-cli-adapter/issues"
+  },
+  "keywords": [
+    "cli",
+    "node",
+    "bridge",
+    "driver",
+    "runner",
+    "adapter",
+    "console",
+    "Stone.js",
+    "connector",
+    "middleware"
+  ],
+  "files": [
+    "/dist"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "lint": "ts-standard src",
+    "lint:fix": "ts-standard --fix src tests",
+    "predoc": "rimraf docs",
+    "doc": "typedoc",
+    "prebuild": "rimraf dist && npm run doc",
+    "build": "rollup -c",
+    "test": "vitest run",
+    "test:cvg": "npm run test -- --coverage",
+    "test:text": "npm run test:cvg -- --coverage.reporter=text",
+    "test:html": "npm run test:cvg -- --coverage.reporter=html",
+    "test:clover": "npm run test:cvg -- --coverage.reporter=clover",
+    "prepare": "husky"
+  },
+  "peerDependencies": {
+    "@stone-js/core": "^0.0.33",
+    "@stone-js/pipeline": "^0.0.46",
+    "@stone-js/service-container": "^0.0.43"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "chokidar": "^4.0.1",
+    "cross-spawn": "^7.0.6",
+    "dotenv": "^16.4.7",
+    "dotenv-expand": "^12.0.1",
+    "flow-bin": "^0.255.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^11.0.0",
+    "inquirer": "^12.1.0",
+    "ora": "^8.1.1",
+    "progress": "^2.0.3",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-multi-entry": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@types/node": "^22.9.0",
+    "@types/yargs": "^17.0.33",
+    "@vitest/coverage-v8": "^2.1.4",
+    "husky": "^9.1.6",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.1.5",
+    "rollup-plugin-delete": "^2.1.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-node-externals": "^6.1.2",
+    "ts-standard": "^12.0.2",
+    "tslib": "^2.8.1",
+    "typedoc": "^0.27.0",
+    "typedoc-plugin-markdown": "^4.2.10",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "ts-standard": {
+    "globals": [
+      "it",
+      "expect",
+      "describe",
+      "beforeEach"
+    ]
+  }
+}
