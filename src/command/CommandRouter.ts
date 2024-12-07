@@ -1,5 +1,5 @@
-import { Argv } from 'yargs'
 import { ICommand } from '../declarations'
+import { COMMAND_NOT_FOUND_CODE } from '../constants'
 import { CommandOptions } from '../decorators/Command'
 import { Container } from '@stone-js/service-container'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
@@ -67,9 +67,9 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
    * @returns The matching command, or undefined if no match is found.
    */
   findCommand (event: W): ICommand<W, X> | undefined {
-    return this.commands
-      .map(([commandClass, options]) => ({ options, command: this.resolveCommand(commandClass) }))
-      .find(({ command, options }) => this.checkCommandMatch(command, event, options))?.command
+    const commands = this.commands.map(([commandClass, options]) => ({ options, command: this.resolveCommand(commandClass) }))
+    return commands.find(({ command, options }) => this.checkCommandMatch(command, event, options))?.command ??
+      commands.find(({ options }) => options.name === '*')?.command
   }
 
   /**
@@ -81,12 +81,11 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
    */
   async runCommand (event: W, command?: ICommand<W, X>): Promise<X> {
     if (command === undefined) {
-      this.showHelp()
-      return OutgoingResponse.create({ content: '', statusCode: 1 }) as X
+      return OutgoingResponse.create({ statusCode: COMMAND_NOT_FOUND_CODE }) as X
     } else if (typeof command.handle === 'function') {
       return await command.handle(event)
     } else {
-      throw new NodeCliAdapterError('Command does not implement a "handle" method.')
+      throw new NodeCliAdapterError('Command does not implement an "handle" method.')
     }
   }
 
@@ -123,18 +122,8 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
     if (typeof command.match === 'function') {
       return command.match(event)
     } else {
-      return event.getMetadataValue('task') === options.name || options.alias?.includes(event.getMetadataValue('task') as string) === true
-    }
-  }
-
-  /**
-   * Displays help information when no command matches the event.
-   */
-  private showHelp (): void {
-    if (this.container.has('builder')) {
-      this.container.make<Argv<{}>>('builder')?.showHelp()
-    } else {
-      console.error('No help available.')
+      const task = event.getMetadataValue<string>('_task')
+      return options.name === task || options.alias === task || (Array.isArray(options.alias) && options.alias.includes(task ?? ''))
     }
   }
 }

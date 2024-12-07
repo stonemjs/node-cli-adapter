@@ -10,6 +10,7 @@ export class NodeCliAdapterError extends IntegrationError {
   }
 
   get exitCode (): number {
-    return (this.cause as { exitCode: number })?.exitCode ?? 1
+    const cause = this.cause as { exitCode: number, statusCode: number }
+    return cause?.exitCode ?? cause?.statusCode ?? 500
   }
 }

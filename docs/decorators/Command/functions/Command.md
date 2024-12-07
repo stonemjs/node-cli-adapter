@@ -56,4 +56,4 @@ class MyCommand {
 
 ## Defined in
 
-[src/decorators/Command.ts:58](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/decorators/Command.ts#L58)
+[src/decorators/Command.ts:58](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/decorators/Command.ts#L58)

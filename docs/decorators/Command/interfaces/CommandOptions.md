@@ -21,20 +21,20 @@ Can be a single alias or an array of aliases.
 
 #### Defined in
 
-[src/decorators/Command.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/decorators/Command.ts#L21)
+[src/decorators/Command.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/decorators/Command.ts#L21)
 
 ***
 
-### args
+### args?
 
-> **args**: `string` \| `string`[]
+> `optional` **args**: `string` \| `string`[]
 
 The arguments required or accepted by the command.
 Can be a single argument or an array of arguments.
 
 #### Defined in
 
-[src/decorators/Command.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/decorators/Command.ts#L27)
+[src/decorators/Command.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/decorators/Command.ts#L27)
 
 ***
 
@@ -46,7 +46,7 @@ The description of the command.
 
 #### Defined in
 
-[src/decorators/Command.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/decorators/Command.ts#L32)
+[src/decorators/Command.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/decorators/Command.ts#L32)
 
 ***
 
@@ -58,17 +58,17 @@ The unique name of the command.
 
 #### Defined in
 
-[src/decorators/Command.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/decorators/Command.ts#L15)
+[src/decorators/Command.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/decorators/Command.ts#L15)
 
 ***
 
 ### options?
 
-> `optional` **options**: `Record`\<`string`, `Options`\>
+> `optional` **options**: `Partial`\<`CommandBuilder`\<`object`\>\>
 
 A map of additional options for the command, where the key is the option name
 and the value is its description.
 
 #### Defined in
 
-[src/decorators/Command.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/decorators/Command.ts#L38)
+[src/decorators/Command.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/decorators/Command.ts#L38)

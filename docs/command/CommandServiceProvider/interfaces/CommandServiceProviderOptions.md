@@ -16,7 +16,7 @@ CommandServiceProvider options.
 
 #### Defined in
 
-[src/command/CommandServiceProvider.ts:18](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandServiceProvider.ts#L18)
+[src/command/CommandServiceProvider.ts:16](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandServiceProvider.ts#L16)
 
 ***
 
@@ -26,4 +26,4 @@ CommandServiceProvider options.
 
 #### Defined in
 
-[src/command/CommandServiceProvider.ts:17](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandServiceProvider.ts#L17)
+[src/command/CommandServiceProvider.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandServiceProvider.ts#L15)

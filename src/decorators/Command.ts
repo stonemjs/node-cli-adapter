@@ -1,4 +1,4 @@
-import { Options } from 'yargs'
+import { CommandBuilder } from 'yargs'
 import { COMMAND_KEY } from './constants'
 import { ClassType, setClassMetadata } from '@stone-js/core'
 
@@ -24,7 +24,7 @@ export interface CommandOptions {
    * The arguments required or accepted by the command.
    * Can be a single argument or an array of arguments.
    */
-  args: string | string[]
+  args?: string | string[]
 
   /**
    * The description of the command.
@@ -35,7 +35,7 @@ export interface CommandOptions {
    * A map of additional options for the command, where the key is the option name
    * and the value is its description.
    */
-  options?: Record<string, Options>
+  options?: Partial<CommandBuilder<{}>>
 }
 
 /**

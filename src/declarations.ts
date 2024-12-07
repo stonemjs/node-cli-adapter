@@ -26,8 +26,8 @@ export interface ICommand<W extends IncomingEvent = IncomingEvent, X extends Out
  */
 export interface NodeCliEvent {
   [x: string]: unknown
-  __script: string
-  __extra: Array<string | number>
+  _script: string
+  _extra: Array<string | number>
 }
 
 /**

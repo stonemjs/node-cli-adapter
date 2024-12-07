@@ -39,7 +39,7 @@ The user's response.
 
 #### Defined in
 
-[src/command/CommandInput.ts:67](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L67)
+[src/command/CommandInput.ts:67](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L67)
 
 ***
 
@@ -71,7 +71,7 @@ The user's response as a number.
 
 #### Defined in
 
-[src/command/CommandInput.ts:78](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L78)
+[src/command/CommandInput.ts:78](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L78)
 
 ***
 
@@ -115,7 +115,7 @@ The user's response.
 
 #### Defined in
 
-[src/command/CommandInput.ts:112](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L112)
+[src/command/CommandInput.ts:112](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L112)
 
 ***
 
@@ -147,7 +147,7 @@ The user's response as a boolean.
 
 #### Defined in
 
-[src/command/CommandInput.ts:99](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L99)
+[src/command/CommandInput.ts:99](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L99)
 
 ***
 
@@ -179,7 +179,7 @@ The user's response as a string.
 
 #### Defined in
 
-[src/command/CommandInput.ts:133](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L133)
+[src/command/CommandInput.ts:133](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L133)
 
 ***
 
@@ -209,7 +209,7 @@ The user's response.
 
 #### Defined in
 
-[src/command/CommandInput.ts:56](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L56)
+[src/command/CommandInput.ts:56](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L56)
 
 ***
 
@@ -235,7 +235,7 @@ The response from the prompt.
 
 #### Defined in
 
-[src/command/CommandInput.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L46)
+[src/command/CommandInput.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L46)
 
 ***
 
@@ -261,7 +261,7 @@ The user's response as a string.
 
 #### Defined in
 
-[src/command/CommandInput.ts:88](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L88)
+[src/command/CommandInput.ts:88](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L88)
 
 ***
 
@@ -285,4 +285,4 @@ The options for creating the CommandInput instance.
 
 #### Defined in
 
-[src/command/CommandInput.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandInput.ts#L27)
+[src/command/CommandInput.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L27)

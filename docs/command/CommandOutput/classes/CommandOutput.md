@@ -19,7 +19,7 @@ A formatting library (e.g., `chalk`).
 
 #### Defined in
 
-[src/command/CommandOutput.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L22)
+[src/command/CommandOutput.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L22)
 
 ## Methods
 
@@ -45,7 +45,7 @@ The current instance for chaining.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:84](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L84)
+[src/command/CommandOutput.ts:84](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L84)
 
 ***
 
@@ -77,7 +77,7 @@ The current instance for chaining.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:108](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L108)
+[src/command/CommandOutput.ts:108](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L108)
 
 ***
 
@@ -109,7 +109,7 @@ The current instance for chaining.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:96](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L96)
+[src/command/CommandOutput.ts:96](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L96)
 
 ***
 
@@ -141,7 +141,7 @@ A new ProgressBar instance.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:164](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L164)
+[src/command/CommandOutput.ts:164](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L164)
 
 ***
 
@@ -167,7 +167,7 @@ The current instance for chaining.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L62)
+[src/command/CommandOutput.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L62)
 
 ***
 
@@ -193,7 +193,7 @@ The spinner instance started.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:143](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L143)
+[src/command/CommandOutput.ts:143](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L143)
 
 ***
 
@@ -219,7 +219,7 @@ The spinner instance.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:153](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L153)
+[src/command/CommandOutput.ts:153](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L153)
 
 ***
 
@@ -251,7 +251,7 @@ The current instance for chaining.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:132](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L132)
+[src/command/CommandOutput.ts:132](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L132)
 
 ***
 
@@ -277,7 +277,7 @@ The current instance for chaining.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:73](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L73)
+[src/command/CommandOutput.ts:73](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L73)
 
 ***
 
@@ -309,7 +309,7 @@ The current instance for chaining.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:120](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L120)
+[src/command/CommandOutput.ts:120](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L120)
 
 ***
 
@@ -333,4 +333,4 @@ The options for creating the CommandOutput instance.
 
 #### Defined in
 
-[src/command/CommandOutput.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L39)
+[src/command/CommandOutput.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L39)

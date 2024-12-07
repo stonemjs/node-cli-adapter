@@ -15,23 +15,9 @@ These options extend the default Node Cli adapter configuration.
 
 ## Properties
 
-### commandBuilder?
-
-> `optional` **commandBuilder**: [`CommandBuilder`](../../../declarations/type-aliases/CommandBuilder.md)
-
-#### Inherited from
-
-`Partial.commandBuilder`
-
-#### Defined in
-
-[src/options/NodeCliAdapterBlueprint.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/options/NodeCliAdapterBlueprint.ts#L21)
-
-***
-
 ### commands?
 
-> `optional` **commands**: `ClassType`[]
+> `optional` **commands**: [`ClassType`, [`CommandOptions`](../../Command/interfaces/CommandOptions.md)][]
 
 #### Inherited from
 
@@ -39,7 +25,7 @@ These options extend the default Node Cli adapter configuration.
 
 #### Defined in
 
-[src/options/NodeCliAdapterBlueprint.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/options/NodeCliAdapterBlueprint.ts#L20)
+[src/options/NodeCliAdapterBlueprint.ts:19](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/options/NodeCliAdapterBlueprint.ts#L19)
 
 ***
 
@@ -53,4 +39,4 @@ These options extend the default Node Cli adapter configuration.
 
 #### Defined in
 
-[src/options/NodeCliAdapterBlueprint.ts:19](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/options/NodeCliAdapterBlueprint.ts#L19)
+[src/options/NodeCliAdapterBlueprint.ts:18](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/options/NodeCliAdapterBlueprint.ts#L18)

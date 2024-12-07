@@ -12,4 +12,4 @@ A unique symbol key to mark classes as command.
 
 ## Defined in
 
-[src/decorators/constants.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/decorators/constants.ts#L9)
+[src/decorators/constants.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/decorators/constants.ts#L9)

@@ -2,23 +2,23 @@
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [middleware/IncomingEventMiddleware](../README.md) / IncomingEventMiddleware
+[Node CLI Adapter Documentation](../../../modules.md) / [middleware/RawResponseMiddleware](../README.md) / RawResponseMiddleware
 
-# Class: IncomingEventMiddleware
+# Class: RawResponseMiddleware
 
-Middleware for handling incoming events in the Node CLI adapter.
+Middleware for handling raw responses in the Node CLI adapter.
 
-This middleware processes the incoming event and prepares it for the next middleware in the pipeline.
+This middleware processes outgoing responses and attaches the necessary exit code, and status codes to the raw response.
 
 ## Constructors
 
-### new IncomingEventMiddleware()
+### new RawResponseMiddleware()
 
-> **new IncomingEventMiddleware**(): [`IncomingEventMiddleware`](IncomingEventMiddleware.md)
+> **new RawResponseMiddleware**(): [`RawResponseMiddleware`](RawResponseMiddleware.md)
 
 #### Returns
 
-[`IncomingEventMiddleware`](IncomingEventMiddleware.md)
+[`RawResponseMiddleware`](RawResponseMiddleware.md)
 
 ## Methods
 
@@ -26,7 +26,7 @@ This middleware processes the incoming event and prepares it for the next middle
 
 > **handle**(`context`, `next`): `Promise`\<[`RawResponseWrapper`](../../../RawResponseWrapper/classes/RawResponseWrapper.md)\>
 
-Handles the incoming event, processes it, and invokes the next middleware in the pipeline.
+Handles the outgoing response, processes it, and invokes the next middleware in the pipeline.
 
 #### Parameters
 
@@ -54,4 +54,4 @@ If required components are missing in the context.
 
 #### Defined in
 
-[src/middleware/IncomingEventMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/middleware/IncomingEventMiddleware.ts#L20)
+[src/middleware/RawResponseMiddleware.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/middleware/RawResponseMiddleware.ts#L21)

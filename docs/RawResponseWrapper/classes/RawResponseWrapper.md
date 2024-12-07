@@ -48,7 +48,7 @@ console.log(response); // 1
 
 #### Defined in
 
-[src/RawResponseWrapper.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/RawResponseWrapper.ts#L62)
+[src/RawResponseWrapper.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/RawResponseWrapper.ts#L62)
 
 ***
 
@@ -89,4 +89,4 @@ console.log(response); // { headers: { 'Content-Type': 'application/json' }, bod
 
 #### Defined in
 
-[src/RawResponseWrapper.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/RawResponseWrapper.ts#L32)
+[src/RawResponseWrapper.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/RawResponseWrapper.ts#L32)

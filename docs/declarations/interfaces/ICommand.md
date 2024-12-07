@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/declarations.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/declarations.ts#L20)
+[src/declarations.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/declarations.ts#L20)
 
 ***
 
@@ -40,4 +40,4 @@
 
 #### Defined in
 
-[src/declarations.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/declarations.ts#L21)
+[src/declarations.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/declarations.ts#L21)

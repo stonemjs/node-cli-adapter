@@ -32,4 +32,4 @@ The updated blueprint or a promise resolving to it.
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/middleware/configMiddleware.ts#L14)
+[src/middleware/configMiddleware.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/middleware/configMiddleware.ts#L14)

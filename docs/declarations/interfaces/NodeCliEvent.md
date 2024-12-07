@@ -14,20 +14,20 @@ Represents a generic Node Cli event as a key-value pair.
 
 ## Properties
 
-### \_\_extra
+### \_extra
 
-> **\_\_extra**: (`string` \| `number`)[]
+> **\_extra**: (`string` \| `number`)[]
 
 #### Defined in
 
-[src/declarations.ts:30](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/declarations.ts#L30)
+[src/declarations.ts:30](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/declarations.ts#L30)
 
 ***
 
-### \_\_script
+### \_script
 
-> **\_\_script**: `string`
+> **\_script**: `string`
 
 #### Defined in
 
-[src/declarations.ts:29](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/declarations.ts#L29)
+[src/declarations.ts:29](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/declarations.ts#L29)

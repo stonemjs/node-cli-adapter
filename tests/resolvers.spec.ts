@@ -13,7 +13,7 @@ describe('NodeCliAdapter Resolvers', () => {
       const handler = nodeCliErrorHandlerResolver(mockBlueprint)
       expect(handler.render(new NodeCliAdapterError('simple error', { cause: cliError, metadata: { rawResponse, rawEvent: {} } }))).toBe(1)
       // @ts-expect-error - Invalid error type for testing purposes
-      expect(handler.render(new NodeCliAdapterError('simple error', { cause: { exitCode: undefined }, metadata: { rawResponse, rawEvent: {} } }))).toBe(1)
+      expect(handler.render(new NodeCliAdapterError('simple error', { cause: { exitCode: undefined }, metadata: { rawResponse, rawEvent: {} } }))).toBe(500)
     })
   })
 

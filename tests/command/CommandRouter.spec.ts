@@ -1,4 +1,5 @@
 import { IncomingEvent } from '@stone-js/core'
+import { COMMAND_NOT_FOUND_CODE } from '../../src/constants'
 import { NodeCliAdapterError } from '../../src/errors/NodeCliAdapterError'
 import { CommandRouter, CommandRouterOptions } from '../../src/command/CommandRouter'
 
@@ -58,7 +59,7 @@ describe('CommandRouter', () => {
     expect(mockCommand.match).toHaveBeenCalledWith(event)
   })
 
-  it('should return undefined if no matching command is found', () => {
+  it('should return the default command if no matching command is found', () => {
     const mockCommand = { match: vi.fn().mockReturnValue(false) }
     const mockCommands = [[() => {}, { name: 'mock', alias: ['m'] }]]
 
@@ -70,6 +71,20 @@ describe('CommandRouter', () => {
     const result = commandRouter.findCommand(event)
 
     expect(result).toBeUndefined()
+  })
+
+  it('should return undefined if no matching command is found', () => {
+    const mockCommand: Function = () => {}
+    const mockCommands = [[mockCommand, { name: '*', alias: ['m'] }]]
+
+    mockBlueprint.get.mockReturnValue(mockCommands)
+    mockContainer.resolve.mockReturnValue(mockCommand)
+
+    const event = { getMetadataValue: vi.fn() } as unknown as IncomingEvent
+
+    const result = commandRouter.findCommand(event)
+
+    expect(result).toEqual({ handle: mockCommand })
   })
 
   it('should dispatch the event', async () => {
@@ -91,20 +106,14 @@ describe('CommandRouter', () => {
     expect(result).toBe('Success')
   })
 
-  it('should show help if no matching command is found', async () => {
-    mockContainer.has.mockReturnValue(true)
-    const mockBuilder = { showHelp: vi.fn() }
-    mockContainer.make.mockReturnValue(mockBuilder)
-
+  it('should return 500 statusCode response if no matching command is found', async () => {
     // @ts-expect-error - empty object for testing purposes
     const event: IncomingEvent = {}
 
     const result = await commandRouter.runCommand(event, undefined)
 
-    expect(mockContainer.make).toHaveBeenCalledWith('builder')
-    expect(mockBuilder.showHelp).toHaveBeenCalled()
     expect(result).toEqual(
-      expect.objectContaining({ content: '', statusCode: 1 })
+      expect.objectContaining({ statusCode: COMMAND_NOT_FOUND_CODE })
     )
   })
 
@@ -162,16 +171,7 @@ describe('CommandRouter', () => {
 
     const result = (commandRouter as any).checkCommandMatch(mockCommand as any, event, options)
 
-    expect(event.getMetadataValue).toHaveBeenCalledWith('task')
+    expect(event.getMetadataValue).toHaveBeenCalledWith('_task')
     expect(result).toBe(true)
-  })
-
-  it('should display an error if no builder is available for help', () => {
-    mockContainer.has.mockReturnValue(false)
-    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-
-    (commandRouter as any).showHelp()
-
-    expect(consoleSpy).toHaveBeenCalledWith('No help available.')
   })
 })

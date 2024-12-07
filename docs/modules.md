@@ -18,6 +18,7 @@
 - [errors/NodeCliAdapterError](errors/NodeCliAdapterError/README.md)
 - [middleware/configMiddleware](middleware/configMiddleware/README.md)
 - [middleware/IncomingEventMiddleware](middleware/IncomingEventMiddleware/README.md)
+- [middleware/RawResponseMiddleware](middleware/RawResponseMiddleware/README.md)
 - [NodeCliAdapter](NodeCliAdapter/README.md)
 - [options/NodeCliAdapterBlueprint](options/NodeCliAdapterBlueprint/README.md)
 - [RawResponseWrapper](RawResponseWrapper/README.md)

@@ -97,7 +97,7 @@ NodeCliAdapterContext
 
 #### Defined in
 
-node\_modules/@stone-js/core/dist/index.d.ts:1750
+node\_modules/@stone-js/core/dist/index.d.ts:1772
 
 ## Methods
 
@@ -132,7 +132,7 @@ A promise resolving to the processed `RawResponse`.
 
 #### Defined in
 
-[src/NodeCliAdapter.ts:116](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/NodeCliAdapter.ts#L116)
+[src/NodeCliAdapter.ts:130](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L130)
 
 ***
 
@@ -159,7 +159,7 @@ If executed outside an Node Cli context (e.g., browser).
 
 #### Defined in
 
-[src/NodeCliAdapter.ts:96](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/NodeCliAdapter.ts#L96)
+[src/NodeCliAdapter.ts:110](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L110)
 
 ***
 
@@ -193,7 +193,7 @@ If used outside the Node Cli environment.
 
 #### Defined in
 
-[src/NodeCliAdapter.ts:74](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/NodeCliAdapter.ts#L74)
+[src/NodeCliAdapter.ts:90](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L90)
 
 ***
 
@@ -224,4 +224,4 @@ A fully initialized `NodeCliAdapter` instance.
 
 #### Defined in
 
-[src/NodeCliAdapter.ts:59](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/NodeCliAdapter.ts#L59)
+[src/NodeCliAdapter.ts:66](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L66)

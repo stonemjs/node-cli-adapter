@@ -16,7 +16,7 @@ CommandOutputOptions
 
 #### Defined in
 
-[src/command/CommandOutput.ts:10](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L10)
+[src/command/CommandOutput.ts:10](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L10)
 
 ***
 
@@ -53,7 +53,7 @@ setTimeout(() => {
 
 #### Defined in
 
-[src/command/CommandOutput.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L11)
+[src/command/CommandOutput.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L11)
 
 ***
 
@@ -63,4 +63,4 @@ setTimeout(() => {
 
 #### Defined in
 
-[src/command/CommandOutput.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandOutput.ts#L9)
+[src/command/CommandOutput.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandOutput.ts#L9)

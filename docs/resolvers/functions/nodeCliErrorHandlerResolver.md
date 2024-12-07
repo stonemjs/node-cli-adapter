@@ -28,4 +28,4 @@ An `ErrorHandler` instance for handling Node Cli errors.
 
 ## Defined in
 
-[src/resolvers.ts:33](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/resolvers.ts#L33)
+[src/resolvers.ts:33](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/resolvers.ts#L33)

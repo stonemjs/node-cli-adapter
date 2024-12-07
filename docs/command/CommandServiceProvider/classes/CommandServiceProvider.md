@@ -4,7 +4,7 @@
 
 [Node CLI Adapter Documentation](../../../modules.md) / [command/CommandServiceProvider](../README.md) / CommandServiceProvider
 
-# Class: CommandServiceProvider\<W, X\>
+# Class: CommandServiceProvider
 
 Class representing a CommandServiceProvider.
 Responsible for registering router and application commands.
@@ -12,12 +12,6 @@ Responsible for registering router and application commands.
 ## Author
 
 Mr. Stone <evensstone@gmail.com>
-
-## Type Parameters
-
-• **W** *extends* `IncomingEvent` = `IncomingEvent`
-
-• **X** *extends* `OutgoingResponse` = `OutgoingResponse`
 
 ## Implements
 
@@ -27,7 +21,7 @@ Mr. Stone <evensstone@gmail.com>
 
 ### new CommandServiceProvider()
 
-> **new CommandServiceProvider**\<`W`, `X`\>(`container`): [`CommandServiceProvider`](CommandServiceProvider.md)\<`W`, `X`\>
+> **new CommandServiceProvider**(`container`): [`CommandServiceProvider`](CommandServiceProvider.md)
 
 Create a new instance of CommandServiceProvider.
 
@@ -41,11 +35,11 @@ The container instance for dependency resolution.
 
 #### Returns
 
-[`CommandServiceProvider`](CommandServiceProvider.md)\<`W`, `X`\>
+[`CommandServiceProvider`](CommandServiceProvider.md)
 
 #### Defined in
 
-[src/command/CommandServiceProvider.ts:44](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandServiceProvider.ts#L44)
+[src/command/CommandServiceProvider.ts:42](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandServiceProvider.ts#L42)
 
 ## Methods
 
@@ -68,7 +62,7 @@ True if the provider should be skipped; otherwise, false.
 
 #### Defined in
 
-[src/command/CommandServiceProvider.ts:76](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandServiceProvider.ts#L76)
+[src/command/CommandServiceProvider.ts:65](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandServiceProvider.ts#L65)
 
 ***
 
@@ -88,4 +82,4 @@ Registers router components and application commands in the service container.
 
 #### Defined in
 
-[src/command/CommandServiceProvider.ts:83](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandServiceProvider.ts#L83)
+[src/command/CommandServiceProvider.ts:72](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandServiceProvider.ts#L72)

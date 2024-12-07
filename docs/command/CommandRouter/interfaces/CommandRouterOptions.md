@@ -16,7 +16,7 @@ CommandRouter options.
 
 #### Defined in
 
-[src/command/CommandRouter.ts:13](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandRouter.ts#L13)
+[src/command/CommandRouter.ts:13](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L13)
 
 ***
 
@@ -26,4 +26,4 @@ CommandRouter options.
 
 #### Defined in
 
-[src/command/CommandRouter.ts:12](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandRouter.ts#L12)
+[src/command/CommandRouter.ts:12](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L12)

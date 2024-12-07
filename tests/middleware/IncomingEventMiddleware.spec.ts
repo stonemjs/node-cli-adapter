@@ -15,7 +15,7 @@ describe('IncomingEventMiddleware', () => {
     mockContext = {
       rawEvent: {
         foo: 'bar',
-        __extra: ['task']
+        _extra: ['task']
       },
       rawResponse: {},
       executionContext: {},
@@ -46,6 +46,6 @@ describe('IncomingEventMiddleware', () => {
 
     expect(next).toHaveBeenCalledWith(mockContext)
     expect(mockContext.incomingEventBuilder?.add).toHaveBeenCalledWith('source', {})
-    expect(mockContext.incomingEventBuilder?.add).toHaveBeenCalledWith('metadata', { args: { foo: 'bar', __extra: [] }, task: 'task' })
+    expect(mockContext.incomingEventBuilder?.add).toHaveBeenCalledWith('metadata', { foo: 'bar', _extra: [], _task: 'task' })
   })
 })

@@ -45,7 +45,7 @@ The container instance for dependency resolution.
 
 #### Defined in
 
-[src/command/CommandRouter.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandRouter.ts#L39)
+[src/command/CommandRouter.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L39)
 
 ## Methods
 
@@ -75,7 +75,7 @@ The result of the command execution.
 
 #### Defined in
 
-[src/command/CommandRouter.ts:59](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandRouter.ts#L59)
+[src/command/CommandRouter.ts:59](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L59)
 
 ***
 
@@ -101,7 +101,7 @@ The matching command, or undefined if no match is found.
 
 #### Defined in
 
-[src/command/CommandRouter.ts:69](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandRouter.ts#L69)
+[src/command/CommandRouter.ts:69](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L69)
 
 ***
 
@@ -133,4 +133,4 @@ The result of the command execution, or void if no command is found.
 
 #### Defined in
 
-[src/command/CommandRouter.ts:82](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/command/CommandRouter.ts#L82)
+[src/command/CommandRouter.ts:82](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L82)

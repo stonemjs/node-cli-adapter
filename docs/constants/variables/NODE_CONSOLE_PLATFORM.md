@@ -16,4 +16,4 @@ incoming requests and responses.
 
 ## Defined in
 
-[src/constants.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/constants.ts#L8)
+[src/constants.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/constants.ts#L8)

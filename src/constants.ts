@@ -6,3 +6,10 @@
  * incoming requests and responses.
  */
 export const NODE_CONSOLE_PLATFORM = 'node_console'
+
+/**
+ * A constant representing the default command not found code.
+ *
+ * This constant is used to indicate that a command was not found or does not exist.
+ */
+export const COMMAND_NOT_FOUND_CODE = 404

@@ -38,7 +38,7 @@ Custom error for Node CLI adapter operations.
 
 #### Defined in
 
-[src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/errors/NodeCliAdapterError.ts#L7)
+[src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/errors/NodeCliAdapterError.ts#L7)
 
 ## Accessors
 
@@ -54,4 +54,4 @@ Custom error for Node CLI adapter operations.
 
 #### Defined in
 
-[src/errors/NodeCliAdapterError.ts:12](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/errors/NodeCliAdapterError.ts#L12)
+[src/errors/NodeCliAdapterError.ts:12](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/errors/NodeCliAdapterError.ts#L12)

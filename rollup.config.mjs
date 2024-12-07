@@ -1,4 +1,5 @@
 import del from 'rollup-plugin-delete'
+import json from '@rollup/plugin-json'
 import { dts } from 'rollup-plugin-dts'
 import multi from '@rollup/plugin-multi-entry'
 import commonjs from '@rollup/plugin-commonjs'
@@ -19,12 +20,13 @@ export default Object.entries(inputs).map(([name, input]) => ({
     multi(),
     nodeExternals(), // Must always be before `nodeResolve()`.
     nodeResolve({
-      extensions: ['.js', '.mjs', '.ts'],
+      extensions: ['.js', '.mjs', '.ts', '.json'],
       exportConditions: ['node', 'import', 'require', 'default']
     }),
+    json(),
     typescript({
       noEmitOnError: true,
-      tsconfig: './tsconfig.build.json',
+      tsconfig: './tsconfig.build.json'
     }),
     commonjs()
   ]

@@ -1,10 +1,9 @@
-import yargs from 'yargs'
-import { argv } from 'node:process'
-import { hideBin } from 'yargs/helpers'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
-import { NodeCliExecutionContext } from '../declarations'
+import { CommandOptions } from '../decorators/Command'
 import { CommandMiddleware } from '../middleware/configMiddleware'
 import { CommandServiceProvider } from '../command/CommandServiceProvider'
+import { RawResponseMiddleware } from '../middleware/RawResponseMiddleware'
+import { IncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
 import { nodeCliAdapterResolver, nodeCliErrorHandlerResolver } from '../resolvers'
 import { AdapterConfig, AdapterHandlerMiddleware, BuilderConfig, ClassType, IProvider, StoneBlueprint } from '@stone-js/core'
 
@@ -17,8 +16,7 @@ import { AdapterConfig, AdapterHandlerMiddleware, BuilderConfig, ClassType, IPro
  */
 export interface NodeCliAdapterConfig extends AdapterConfig {
   router?: ClassType
-  commands: ClassType[]
-  commandBuilder: NodeCliExecutionContext
+  commands: Array<[ClassType, CommandOptions]>
 }
 
 /**
@@ -60,13 +58,14 @@ export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
         platform: NODE_CONSOLE_PLATFORM,
         resolver: nodeCliAdapterResolver,
         middleware: [
-          { priority: 100, pipe: AdapterHandlerMiddleware }
+          { priority: 0, pipe: IncomingEventMiddleware },
+          { priority: 100, pipe: AdapterHandlerMiddleware },
+          { priority: 200, pipe: RawResponseMiddleware }
         ],
         hooks: {},
         errorHandler: {
           resolver: nodeCliErrorHandlerResolver
         },
-        commandBuilder: yargs(hideBin(argv)),
         current: false,
         default: false,
         preferred: false,

@@ -18,4 +18,4 @@ within the Stone.js framework. It includes:
 
 ## Defined in
 
-[src/options/NodeCliAdapterBlueprint.ts:48](https://github.com/stonemjs/node-cli-adapter/blob/51fcc01bbd0eb589538cce80e62e720559e5481a/src/options/NodeCliAdapterBlueprint.ts#L48)
+[src/options/NodeCliAdapterBlueprint.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/options/NodeCliAdapterBlueprint.ts#L46)
