@@ -1,11 +1,12 @@
 import { NODE_CONSOLE_PLATFORM } from '../constants'
+import { nodeCliAdapterResolver } from '../resolvers'
 import { CommandOptions } from '../decorators/Command'
+import { NodeCliErrorHandler } from '../NodeCliErrorHandler'
 import { CommandMiddleware } from '../middleware/configMiddleware'
 import { CommandServiceProvider } from '../command/CommandServiceProvider'
 import { RawResponseMiddleware } from '../middleware/RawResponseMiddleware'
 import { IncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
-import { nodeCliAdapterResolver, nodeCliErrorHandlerResolver } from '../resolvers'
-import { AdapterConfig, AdapterHandlerMiddleware, BuilderConfig, ClassType, IProvider, StoneBlueprint } from '@stone-js/core'
+import { AdapterConfig, AppConfig, ClassType, StoneBlueprint } from '@stone-js/core'
 
 /**
  * Configuration interface for the Node Cli Adapter.
@@ -15,8 +16,14 @@ import { AdapterConfig, AdapterHandlerMiddleware, BuilderConfig, ClassType, IPro
  * alias, resolver, middleware, hooks, and various adapter state flags.
  */
 export interface NodeCliAdapterConfig extends AdapterConfig {
-  router?: ClassType
   commands: Array<[ClassType, CommandOptions]>
+}
+
+/**
+ * Represents the NodeCli configuration options for the application.
+ */
+export interface NodeCliAdapterAppConfig extends Partial<AppConfig> {
+  adapters: NodeCliAdapterConfig[]
 }
 
 /**
@@ -27,11 +34,7 @@ export interface NodeCliAdapterConfig extends AdapterConfig {
  * a `stone` object with an array of `NodeCliAdapterConfig` items.
  */
 export interface NodeCliAdapterBlueprint extends StoneBlueprint {
-  stone: {
-    builder: BuilderConfig
-    adapters: NodeCliAdapterConfig[]
-    providers: Array<new (...args: any[]) => IProvider>
-  }
+  stone: NodeCliAdapterAppConfig
 }
 
 /**
@@ -47,7 +50,7 @@ export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
   stone: {
     builder: {
       middleware: [
-        { priority: 5, pipe: CommandMiddleware }
+        { priority: 1, pipe: CommandMiddleware }
       ]
     },
     providers: [
@@ -59,17 +62,15 @@ export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
         resolver: nodeCliAdapterResolver,
         middleware: [
           { priority: 0, pipe: IncomingEventMiddleware },
-          { priority: 100, pipe: AdapterHandlerMiddleware },
-          { priority: 200, pipe: RawResponseMiddleware }
+          { priority: 10, pipe: RawResponseMiddleware }
         ],
         hooks: {},
-        errorHandler: {
-          resolver: nodeCliErrorHandlerResolver
+        commands: [],
+        errorHandlers: {
+          default: NodeCliErrorHandler
         },
         current: false,
-        default: false,
-        preferred: false,
-        commands: []
+        default: false
       }
     ]
   }

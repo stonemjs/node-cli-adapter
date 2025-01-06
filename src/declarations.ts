@@ -1,5 +1,6 @@
 import { Argv } from 'yargs'
-import { AdapterContext, EventHandlerFunction, IncomingEvent, IncomingEventOptions, OutgoingResponse } from '@stone-js/core'
+import { RawResponseWrapper } from './RawResponseWrapper'
+import { AdapterContext, EventHandlerFunction, IAdapterEventBuilder, IncomingEvent, IncomingEventOptions, OutgoingResponse, RawResponseOptions } from '@stone-js/core'
 
 /**
  * Represents a generic raw response as a number.
@@ -7,15 +8,23 @@ import { AdapterContext, EventHandlerFunction, IncomingEvent, IncomingEventOptio
 export type RawResponse = number
 
 /**
+ * Represents the CommandBuilder as yargs.
+ */
+export type CommandBuilder = Argv<{}>
+
+/**
  * Represents the Node Cli execution context as yargs.
  */
 export type NodeCliExecutionContext = CommandBuilder
 
 /**
- * Represents the CommandBuilder as yargs.
+ * Represents the response builder for the Node cli Adapter.
  */
-export type CommandBuilder = Argv<{}>
+export type NodeCliAdapterResponseBuilder = IAdapterEventBuilder<RawResponseOptions, RawResponseWrapper>
 
+/**
+ * Represents the CommandHandler function for the Node Cli Adapter.
+ */
 export interface ICommand<W extends IncomingEvent = IncomingEvent, X extends OutgoingResponse = OutgoingResponse> {
   handle: EventHandlerFunction<W, X>
   match?: (event: IncomingEvent) => boolean

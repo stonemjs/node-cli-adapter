@@ -1,30 +1,20 @@
-import { Config } from '@stone-js/config'
-import { ClassType, ConfigContext } from '@stone-js/core'
 import { COMMAND_KEY } from '../../src/decorators/constants'
 import { CommandMiddleware } from '../../src/middleware/configMiddleware'
+import { ClassType, ConfigContext, MetadataSymbol, MetadataHolder, IBlueprint } from '@stone-js/core'
 
 // Mock dependencies
-vi.mock('@stone-js/pipeline')
 const mockNext = vi.fn()
 
+const mockBlueprint = {
+  add: vi.fn().mockReturnThis(),
+} as unknown as IBlueprint
+
 // Utility functions
-const createMockContext = (modules: unknown[]): ConfigContext => ({ modules, blueprint: Config.create() })
+const createMockContext = (modules: unknown[]): ConfigContext => ({ modules, blueprint: mockBlueprint })
 const createMockModule = (key: PropertyKey, metadata: Record<any, any>): ClassType => {
   /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-  class MyClass {
-    static readonly app = {
-      builder: {
-        middleware: []
-      }
-    }
-
-    static onInit (): void {}
-
-    static async load (): Promise<unknown> {
-      return await Promise.resolve({ stone: { name: 'Test Stone.js' } })
-    }
-  }
-  MyClass[Symbol.metadata] = { [key]: metadata }
+  const MyClass: ClassType & Partial<MetadataHolder> = class {}
+  MyClass[MetadataSymbol] = { [key]: metadata }
   return MyClass
 }
 
@@ -47,15 +37,13 @@ describe('configMiddleware', () => {
     vi.clearAllMocks()
   })
 
-  describe('ServiceMiddleware', () => {
+  describe('CommandMiddleware', () => {
     it('should call next with updated blueprint', async () => {
       const result = await CommandMiddleware(mockContext, mockNext)
 
-      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
-      expect(mockContext.blueprint.get('stone.adapter.commands')).length(2)
-      expect(mockContext.blueprint.get('stone.adapter.router')).toBeTruthy()
-      expect(mockContext.blueprint.get<Function[]>('stone.adapter.commands.0', [])).length(2)
+      expect(mockContext.blueprint.add).toHaveBeenCalledWith('stone.adapter.commands', expect.any(Array))
+      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
     })
 
     it('should call next with no router and commands', async () => {
@@ -63,10 +51,9 @@ describe('configMiddleware', () => {
       mockContext.modules = []
       const result = await CommandMiddleware(mockContext, mockNext)
 
-      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
-      expect(mockContext.blueprint.get('stone.adapter.commands', [])).length(0)
-      expect(mockContext.blueprint.get('stone.adapter.router')).toBeFalsy()
+      expect(mockContext.blueprint.add).not.toHaveBeenCalled()
+      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
     })
   })
 })

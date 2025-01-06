@@ -32,6 +32,24 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
   private readonly container: Container
 
   /**
+   * Creates a new instance of `CommandRouter`.
+   *
+   * This static method initializes a `CommandRouter` with the specified options.
+   *
+   * @typeParam W - The type of the incoming event (default: `IncomingEvent`).
+   * @typeParam X - The type of the outgoing response (default: `OutgoingResponse`).
+   *
+   * @param options - The configuration options for the `CommandRouter`.
+   * @returns A new instance of `CommandRouter` configured with the provided options.
+   */
+  static create<
+    W extends IncomingEvent = IncomingEvent,
+    X extends OutgoingResponse = OutgoingResponse
+  >(options: CommandRouterOptions): CommandRouter<W, X> {
+    return new this(options)
+  }
+
+  /**
    * Create a new instance of CommandRouter.
    *
    * @param container - The container instance for dependency resolution.

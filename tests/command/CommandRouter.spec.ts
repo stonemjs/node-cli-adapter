@@ -26,7 +26,7 @@ describe('CommandRouter', () => {
       container: mockContainer
     }
 
-    commandRouter = new CommandRouter(options)
+    commandRouter = CommandRouter.create(options)
   })
 
   it('should create a CommandRouter instance', () => {

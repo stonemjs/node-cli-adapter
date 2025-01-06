@@ -1,11 +1,12 @@
-import { addBlueprint, ClassType } from '@stone-js/core'
+import deepmerge from 'deepmerge'
+import { addBlueprint, classDecoratorLegacyWrapper, ClassType } from '@stone-js/core'
 import { nodeCliAdapterBlueprint, NodeCliAdapterConfig } from '../options/NodeCliAdapterBlueprint'
 
 /**
- * Configuration options for the `NodeConsoleAdapter` decorator.
+ * Configuration options for the `NodeConsole` decorator.
  * These options extend the default Node Cli adapter configuration.
  */
-export interface NodeConsoleAdapterOptions extends Partial<NodeCliAdapterConfig> {}
+export interface NodeConsoleOptions extends Partial<NodeCliAdapterConfig> {}
 
 /**
  * A Stone.js decorator that integrates the Node Cli Adapter with a class.
@@ -21,29 +22,24 @@ export interface NodeConsoleAdapterOptions extends Partial<NodeCliAdapterConfig>
  *
  * @example
  * ```typescript
- * import { NodeConsoleAdapter } from '@stone-js/node-cli-adapter';
+ * import { NodeConsole } from '@stone-js/node-cli-adapter';
  *
- * @NodeConsoleAdapter({
- *   alias: 'NodeConsoleAdapter',
+ * @NodeConsole({
+ *   alias: 'NodeConsole',
  * })
  * class App {
  *   // Your application logic here
  * }
  * ```
  */
-export const NodeConsoleAdapter = <T extends ClassType = ClassType>(
-  options: NodeConsoleAdapterOptions = {}
-): ((target: T, context: ClassDecoratorContext<T>) => void) => {
-  return (target: T, context: ClassDecoratorContext<T>) => {
+export const NodeConsole = <T extends ClassType = ClassType>(options: NodeConsoleOptions = {}): ClassDecorator => {
+  return classDecoratorLegacyWrapper<T>((target: T, context: ClassDecoratorContext<T>): undefined => {
     if (nodeCliAdapterBlueprint.stone?.adapters?.[0] !== undefined) {
       // Merge provided options with the default Node Cli adapter blueprint.
-      nodeCliAdapterBlueprint.stone.adapters[0] = {
-        ...nodeCliAdapterBlueprint.stone.adapters[0],
-        ...options
-      }
+      nodeCliAdapterBlueprint.stone.adapters[0] = deepmerge(nodeCliAdapterBlueprint.stone.adapters[0], options)
     }
 
     // Add the modified blueprint to the target class.
     addBlueprint(target, context, nodeCliAdapterBlueprint)
-  }
+  })
 }

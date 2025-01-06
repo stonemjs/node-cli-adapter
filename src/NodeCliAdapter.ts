@@ -1,5 +1,5 @@
-import { argv } from 'node:process'
 import { hideBin } from 'yargs/helpers'
+import { argv, exit } from 'node:process'
 import yargs, { BuilderCallback } from 'yargs'
 // @ts-expect-error - This import is handled by @rollup/plugin-json
 import { version } from '../package.json'
@@ -8,7 +8,7 @@ import { CommandOptions } from './decorators/Command'
 import { RawResponseWrapper } from './RawResponseWrapper'
 import { NodeCliAdapterError } from './errors/NodeCliAdapterError'
 import { NodeCliExecutionContext, NodeCliEvent, RawResponse, NodeCliAdapterContext } from './declarations'
-import { Adapter, AdapterEventBuilder, AdapterOptions, ClassType, IncomingEvent, IncomingEventOptions, OutgoingResponse, RawResponseOptions } from '@stone-js/core'
+import { Adapter, AdapterEventBuilder, AdapterOptions, ClassType, IncomingEvent, IncomingEventOptions, LifecycleEventHandler, OutgoingResponse, RawResponseOptions } from '@stone-js/core'
 
 /**
  * Node Cli Adapter for Stone.js.
@@ -63,9 +63,7 @@ NodeCliAdapterContext
    *                  handler resolver, error handling, and other settings.
    * @returns A fully initialized `NodeCliAdapter` instance.
    */
-  static create (
-    options: AdapterOptions<RawResponse, IncomingEvent, OutgoingResponse>
-  ): NodeCliAdapter {
+  static create (options: AdapterOptions<IncomingEvent, OutgoingResponse>): NodeCliAdapter {
     return new this(options)
   }
 
@@ -92,11 +90,11 @@ NodeCliAdapterContext
 
     const executionContext = yargs(hideBin(argv)).help().version(version).scriptName('stone')
     const rawEvent = await this.registerAppCommands(executionContext).makeRawEvent(executionContext)
-    const response = await this.eventListener(rawEvent, executionContext) as ExecutionResultType
+    const response = await this.eventListener(rawEvent, executionContext)
 
     response === COMMAND_NOT_FOUND_CODE && executionContext.showHelp()
 
-    return response
+    return exit(response)
   }
 
   /**
@@ -127,10 +125,11 @@ NodeCliAdapterContext
    * @param executionContext - The Node Cli execution context for the event.
    * @returns A promise resolving to the processed `RawResponse`.
    */
-  protected async eventListener (
-    rawEvent: NodeCliEvent,
-    executionContext: NodeCliExecutionContext
-  ): Promise<RawResponse> {
+  protected async eventListener (rawEvent: NodeCliEvent, executionContext: NodeCliExecutionContext): Promise<RawResponse> {
+    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleEventHandler<IncomingEvent, OutgoingResponse>
+
+    await this.onPrepare(eventHandler)
+
     const incomingEventBuilder = AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({
       resolver: (options) => IncomingEvent.create(options)
     })
@@ -141,7 +140,7 @@ NodeCliAdapterContext
 
     const rawResponse: RawResponse = 0
 
-    return await this.sendEventThroughDestination({
+    return await this.sendEventThroughDestination(eventHandler, {
       rawEvent,
       rawResponse,
       executionContext,

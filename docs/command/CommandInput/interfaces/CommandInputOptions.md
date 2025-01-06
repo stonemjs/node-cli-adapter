@@ -1,10 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
 
 ***
 
 [Node CLI Adapter Documentation](../../../modules.md) / [command/CommandInput](../README.md) / CommandInputOptions
 
 # Interface: CommandInputOptions
+
+Defined in: [src/command/CommandInput.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandInput.ts#L7)
 
 CommandInputOptions
 
@@ -13,6 +15,8 @@ CommandInputOptions
 ### prompt()
 
 > **prompt**: \<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `Answers`\<`Extract`\<keyof `A`, `string`\>\> *extends* `T_1` ? \{ \[K\_1 in string \| number \| symbol\]: \{\}\[K\_1\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A`\>
+
+Defined in: [src/command/CommandInput.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandInput.ts#L8)
 
 #### Type Parameters
 
@@ -93,7 +97,3 @@ CommandInputOptions
 #### Returns
 
 `PromptReturnType`\<`PrefilledAnswers` & `A`\>
-
-#### Defined in
-
-[src/command/CommandInput.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandInput.ts#L8)

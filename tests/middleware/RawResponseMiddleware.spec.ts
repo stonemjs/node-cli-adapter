@@ -30,11 +30,10 @@ describe('RawResponseMiddleware', () => {
       }
     } as unknown as NodeCliAdapterContext
 
-    next = vi.fn()
+    next = vi.fn(() => mockContext.rawResponseBuilder)
   })
 
   it('should throw an error if context is missing required components', async () => {
-    // @ts-expect-error
     mockContext.outgoingResponse = undefined
 
     await expect(middleware.handle(mockContext, next)).rejects.toThrow(NodeCliAdapterError)

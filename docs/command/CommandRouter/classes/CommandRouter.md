@@ -1,10 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
 
 ***
 
 [Node CLI Adapter Documentation](../../../modules.md) / [command/CommandRouter](../README.md) / CommandRouter
 
 # Class: CommandRouter\<W, X\>
+
+Defined in: [src/command/CommandRouter.ts:23](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandRouter.ts#L23)
 
 Class representing a CommandRouter.
 Responsible for finding and dispatching commands based on incoming events.
@@ -29,6 +31,8 @@ Mr. Stone <evensstone@gmail.com>
 
 > **new CommandRouter**\<`W`, `X`\>(`container`): [`CommandRouter`](CommandRouter.md)\<`W`, `X`\>
 
+Defined in: [src/command/CommandRouter.ts:57](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandRouter.ts#L57)
+
 Create a new instance of CommandRouter.
 
 #### Parameters
@@ -43,15 +47,13 @@ The container instance for dependency resolution.
 
 [`CommandRouter`](CommandRouter.md)\<`W`, `X`\>
 
-#### Defined in
-
-[src/command/CommandRouter.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L39)
-
 ## Methods
 
 ### dispatch()
 
 > **dispatch**(`event`): `Promise`\<`X`\>
+
+Defined in: [src/command/CommandRouter.ts:77](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandRouter.ts#L77)
 
 Dispatches an event to the appropriate command.
 
@@ -73,15 +75,13 @@ The result of the command execution.
 
 `IRouter.dispatch`
 
-#### Defined in
-
-[src/command/CommandRouter.ts:59](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L59)
-
 ***
 
 ### findCommand()
 
 > **findCommand**(`event`): `undefined` \| [`ICommand`](../../../declarations/interfaces/ICommand.md)\<`W`, `X`\>
+
+Defined in: [src/command/CommandRouter.ts:87](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandRouter.ts#L87)
 
 Finds a command that matches the given event.
 
@@ -99,15 +99,13 @@ The incoming event to match against commands.
 
 The matching command, or undefined if no match is found.
 
-#### Defined in
-
-[src/command/CommandRouter.ts:69](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L69)
-
 ***
 
 ### runCommand()
 
 > **runCommand**(`event`, `command`?): `Promise`\<`X`\>
+
+Defined in: [src/command/CommandRouter.ts:100](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandRouter.ts#L100)
 
 Runs the given command with the provided event.
 
@@ -131,6 +129,38 @@ The command to execute.
 
 The result of the command execution, or void if no command is found.
 
-#### Defined in
+***
 
-[src/command/CommandRouter.ts:82](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/command/CommandRouter.ts#L82)
+### create()
+
+> `static` **create**\<`W`, `X`\>(`options`): [`CommandRouter`](CommandRouter.md)\<`W`, `X`\>
+
+Defined in: [src/command/CommandRouter.ts:45](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandRouter.ts#L45)
+
+Creates a new instance of `CommandRouter`.
+
+This static method initializes a `CommandRouter` with the specified options.
+
+#### Type Parameters
+
+• **W** *extends* `IncomingEvent` = `IncomingEvent`
+
+The type of the incoming event (default: `IncomingEvent`).
+
+• **X** *extends* `OutgoingResponse` = `OutgoingResponse`
+
+The type of the outgoing response (default: `OutgoingResponse`).
+
+#### Parameters
+
+##### options
+
+[`CommandRouterOptions`](../interfaces/CommandRouterOptions.md)
+
+The configuration options for the `CommandRouter`.
+
+#### Returns
+
+[`CommandRouter`](CommandRouter.md)\<`W`, `X`\>
+
+A new instance of `CommandRouter` configured with the provided options.

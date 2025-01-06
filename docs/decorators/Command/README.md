@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
 
 ***
 
@@ -6,12 +6,10 @@
 
 # decorators/Command
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [CommandOptions](interfaces/CommandOptions.md)
 
-### Functions
+## Functions
 
 - [Command](functions/Command.md)

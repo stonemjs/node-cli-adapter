@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: CommandMiddleware()
 
 > **CommandMiddleware**(`configContext`, `next`): `IBlueprint` \| `Promise`\<`IBlueprint`\>
+
+Defined in: [src/middleware/configMiddleware.ts:13](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/middleware/configMiddleware.ts#L13)
 
 Middleware to process and register modules as command handlers.
 
@@ -29,7 +31,3 @@ The next middleware in the pipeline to call.
 `IBlueprint` \| `Promise`\<`IBlueprint`\>
 
 The updated blueprint or a promise resolving to it.
-
-## Defined in
-
-[src/middleware/configMiddleware.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/middleware/configMiddleware.ts#L14)

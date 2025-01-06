@@ -1,8 +1,8 @@
-[**Node CLI Adapter Documentation v0.0.0**](README.md)
+[**Node CLI Adapter Documentation v0.0.21**](README.md)
 
 ***
 
-# Node CLI Adapter Documentation v0.0.0
+# Node CLI Adapter Documentation v0.0.21
 
 ## Modules
 
@@ -14,12 +14,13 @@
 - [declarations](declarations/README.md)
 - [decorators/Command](decorators/Command/README.md)
 - [decorators/constants](decorators/constants/README.md)
-- [decorators/NodeConsoleAdapter](decorators/NodeConsoleAdapter/README.md)
+- [decorators/NodeConsole](decorators/NodeConsole/README.md)
 - [errors/NodeCliAdapterError](errors/NodeCliAdapterError/README.md)
 - [middleware/configMiddleware](middleware/configMiddleware/README.md)
 - [middleware/IncomingEventMiddleware](middleware/IncomingEventMiddleware/README.md)
 - [middleware/RawResponseMiddleware](middleware/RawResponseMiddleware/README.md)
 - [NodeCliAdapter](NodeCliAdapter/README.md)
+- [NodeCliErrorHandler](NodeCliErrorHandler/README.md)
 - [options/NodeCliAdapterBlueprint](options/NodeCliAdapterBlueprint/README.md)
 - [RawResponseWrapper](RawResponseWrapper/README.md)
 - [resolvers](resolvers/README.md)

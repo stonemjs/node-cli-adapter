@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
 
 ***
 
@@ -6,13 +6,12 @@
 
 # options/NodeCliAdapterBlueprint
 
-## Index
+## Interfaces
 
-### Interfaces
-
+- [NodeCliAdapterAppConfig](interfaces/NodeCliAdapterAppConfig.md)
 - [NodeCliAdapterBlueprint](interfaces/NodeCliAdapterBlueprint.md)
 - [NodeCliAdapterConfig](interfaces/NodeCliAdapterConfig.md)
 
-### Variables
+## Variables
 
 - [nodeCliAdapterBlueprint](variables/nodeCliAdapterBlueprint.md)

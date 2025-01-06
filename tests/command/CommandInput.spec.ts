@@ -91,10 +91,10 @@ describe('CommandInput', () => {
     const mockAnswers = { value: 'Choice 1' };
     (mockPrompt as any).mockResolvedValue(mockAnswers)
 
-    const result = await commandInput.choice('Choose one:', ['Choice 1', 'Choice 2'], 0)
+    const result = await commandInput.choice('Choose one:', ['Choice 1', 'Choice 2'], [0])
 
     expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'rawlist', choices: ['Choice 1', 'Choice 2'], message: 'Choose one:', default: 0, name: 'value' }
+      { type: 'rawlist', choices: ['Choice 1', 'Choice 2'], message: 'Choose one:', default: [0], name: 'value' }
     ])
     expect(result).toBe('Choice 1')
   })
@@ -103,10 +103,10 @@ describe('CommandInput', () => {
     const mockAnswers = { value: ['Choice 1', 'Choice 2'] };
     (mockPrompt as any).mockResolvedValue(mockAnswers)
 
-    const result = await commandInput.choice('Choose multiple:', ['Choice 1', 'Choice 2'], 0, true)
+    const result = await commandInput.choice('Choose multiple:', ['Choice 1', 'Choice 2'], [0], true)
 
     expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'checkbox', choices: ['Choice 1', 'Choice 2'], message: 'Choose multiple:', default: 0, name: 'value' }
+      { type: 'checkbox', choices: ['Choice 1', 'Choice 2'], message: 'Choose multiple:', default: [0], name: 'value' }
     ])
     expect(result).toEqual(['Choice 1', 'Choice 2'])
   })

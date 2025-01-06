@@ -1,10 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
 
 ***
 
 [Node CLI Adapter Documentation](../../modules.md) / [NodeCliAdapter](../README.md) / NodeCliAdapter
 
 # Class: NodeCliAdapter
+
+Defined in: [src/NodeCliAdapter.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L46)
 
 Node Cli Adapter for Stone.js.
 
@@ -69,13 +71,15 @@ export { handler };
 
 > `protected` **new NodeCliAdapter**(`options`): [`NodeCliAdapter`](NodeCliAdapter.md)
 
+Defined in: node\_modules/@stone-js/core/dist/index.d.ts:1876
+
 Create an Adapter.
 
 #### Parameters
 
 ##### options
 
-`AdapterOptions`\<`number`, `IncomingEvent`, `OutgoingResponse`\>
+`AdapterOptions`\<`IncomingEvent`, `OutgoingResponse`\>
 
 Adapter options.
 
@@ -85,25 +89,15 @@ Adapter options.
 
 #### Inherited from
 
-`Adapter<
-NodeCliEvent,
-RawResponse,
-NodeCliExecutionContext,
-IncomingEvent,
-IncomingEventOptions,
-OutgoingResponse,
-NodeCliAdapterContext
->.constructor`
-
-#### Defined in
-
-node\_modules/@stone-js/core/dist/index.d.ts:1772
+`Adapter< NodeCliEvent, RawResponse, NodeCliExecutionContext, IncomingEvent, IncomingEventOptions, OutgoingResponse, NodeCliAdapterContext >.constructor`
 
 ## Methods
 
 ### eventListener()
 
 > `protected` **eventListener**(`rawEvent`, `executionContext`): `Promise`\<`number`\>
+
+Defined in: [src/NodeCliAdapter.ts:128](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L128)
 
 Processes an incoming Node Cli event.
 
@@ -130,15 +124,13 @@ The Node Cli execution context for the event.
 
 A promise resolving to the processed `RawResponse`.
 
-#### Defined in
-
-[src/NodeCliAdapter.ts:130](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L130)
-
 ***
 
 ### onInit()
 
 > `protected` **onInit**(): `Promise`\<`void`\>
+
+Defined in: [src/NodeCliAdapter.ts:108](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L108)
 
 Initializes the adapter and validates its execution context.
 
@@ -157,15 +149,13 @@ If executed outside an Node Cli context (e.g., browser).
 
 `Adapter.onInit`
 
-#### Defined in
-
-[src/NodeCliAdapter.ts:110](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L110)
-
 ***
 
 ### run()
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
+
+Defined in: [src/NodeCliAdapter.ts:88](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L88)
 
 Executes the adapter and provides an Node Cli-compatible handler function.
 
@@ -191,15 +181,13 @@ If used outside the Node Cli environment.
 
 `Adapter.run`
 
-#### Defined in
-
-[src/NodeCliAdapter.ts:90](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L90)
-
 ***
 
 ### create()
 
 > `static` **create**(`options`): [`NodeCliAdapter`](NodeCliAdapter.md)
+
+Defined in: [src/NodeCliAdapter.ts:66](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L66)
 
 Creates an instance of the `NodeCliAdapter`.
 
@@ -211,7 +199,7 @@ Node Cli usage.
 
 ##### options
 
-`AdapterOptions`\<`number`, `IncomingEvent`, `OutgoingResponse`\>
+`AdapterOptions`\<`IncomingEvent`, `OutgoingResponse`\>
 
 The configuration options for the adapter, including
                  handler resolver, error handling, and other settings.
@@ -221,7 +209,3 @@ The configuration options for the adapter, including
 [`NodeCliAdapter`](NodeCliAdapter.md)
 
 A fully initialized `NodeCliAdapter` instance.
-
-#### Defined in
-
-[src/NodeCliAdapter.ts:66](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/NodeCliAdapter.ts#L66)

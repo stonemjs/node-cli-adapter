@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # middleware/IncomingEventMiddleware
 
-## Index
-
-### Classes
+## Classes
 
 - [IncomingEventMiddleware](classes/IncomingEventMiddleware.md)

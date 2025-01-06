@@ -1,4 +1,5 @@
 import yargs from 'yargs'
+import { exit } from 'node:process'
 import { hideBin } from 'yargs/helpers'
 import { RawResponse } from '../src/declarations'
 import { NodeCliAdapter } from '../src/NodeCliAdapter'
@@ -8,20 +9,20 @@ import { RawResponseWrapper } from '../src/RawResponseWrapper'
 import { NodeCliAdapterError } from '../src/errors/NodeCliAdapterError'
 import { AdapterEventBuilder, AdapterOptions, IncomingEvent, OutgoingResponse } from '@stone-js/core'
 
+vi.mock('node:process')
+
 const showHelpMock = vi.fn()
 
-vi.mock('yargs', () => {
-  return {
-    default: vi.fn(() => ({
-      help: vi.fn().mockReturnThis(),
-      version: vi.fn().mockReturnThis(),
-      scriptName: vi.fn().mockReturnThis(),
-      command: vi.fn().mockReturnThis(),
-      showHelp: showHelpMock.mockReturnThis(),
-      parse: vi.fn(() => ({ _: [], $0: 'script' }))
-    }))
-  }
-})
+vi.mock('yargs', () => ({
+  default: vi.fn(() => ({
+    help: vi.fn().mockReturnThis(),
+    version: vi.fn().mockReturnThis(),
+    scriptName: vi.fn().mockReturnThis(),
+    command: vi.fn().mockReturnThis(),
+    showHelp: showHelpMock.mockReturnThis(),
+    parse: vi.fn(() => ({ _: [], $0: 'script' }))
+  }))
+}))
 
 vi.mock('../package.json', () => ({
   version: '1.0.0'
@@ -29,7 +30,7 @@ vi.mock('../package.json', () => ({
 
 describe('NodeCliAdapter', () => {
   let adapter: NodeCliAdapter
-  let adapterOptions: AdapterOptions<RawResponse, IncomingEvent, OutgoingResponse>
+  let adapterOptions: AdapterOptions<IncomingEvent, OutgoingResponse>
 
   beforeEach(() => {
     adapterOptions = {
@@ -42,10 +43,6 @@ describe('NodeCliAdapter', () => {
       handlerResolver: vi.fn(),
       logger: {
         error: vi.fn()
-      },
-      errorHandler: {
-        render: vi.fn().mockReturnValue(500),
-        report: vi.fn().mockReturnThis()
       }
     } as any
 
@@ -76,13 +73,16 @@ describe('NodeCliAdapter', () => {
 
   describe('run', () => {
     it('should initialize and execute the adapter', async () => {
-      const response = await adapter.run<RawResponse>()
-      expect(response).toBe(500) // Assuming the default behavior without commands
+      // @ts-expect-error - Accessing private method for testing purposes
+      adapter.sendEventThroughDestination = vi.fn(() => 500)
+      await adapter.run<RawResponse>()
       expect(yargs).toHaveBeenCalled()
+      expect(exit).toHaveBeenCalledWith(500)
     })
 
     it('should show help if no command matches', async () => {
-      adapterOptions.errorHandler.render = vi.fn().mockReturnValue(COMMAND_NOT_FOUND_CODE)
+      // @ts-expect-error - Accessing private method for testing purposes
+      adapter.sendEventThroughDestination = vi.fn(() => COMMAND_NOT_FOUND_CODE)
       await adapter.run<RawResponse>()
       expect(showHelpMock).toHaveBeenCalled()
     })

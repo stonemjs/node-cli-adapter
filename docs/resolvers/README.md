@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../README.md)
 
 ***
 
@@ -6,9 +6,6 @@
 
 # resolvers
 
-## Index
-
-### Functions
+## Functions
 
 - [nodeCliAdapterResolver](functions/nodeCliAdapterResolver.md)
-- [nodeCliErrorHandlerResolver](functions/nodeCliErrorHandlerResolver.md)

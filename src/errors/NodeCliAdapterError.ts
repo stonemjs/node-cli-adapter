@@ -8,9 +8,4 @@ export class NodeCliAdapterError extends IntegrationError {
     super(message, options)
     this.name = 'NodeCliAdapterError'
   }
-
-  get exitCode (): number {
-    const cause = this.cause as { exitCode: number, statusCode: number }
-    return cause?.exitCode ?? cause?.statusCode ?? 500
-  }
 }

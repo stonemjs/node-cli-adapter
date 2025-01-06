@@ -1,6 +1,7 @@
 import { NODE_CONSOLE_PLATFORM } from '../../src/constants'
 import { CommandInput } from '../../src/command/CommandInput'
 import { CommandOutput } from '../../src/command/CommandOutput'
+import { CommandRouter } from '../../src/command/CommandRouter'
 import { NodeCliAdapterError } from '../../src/errors/NodeCliAdapterError'
 import { CommandServiceProvider, CommandServiceProviderOptions } from '../../src/command/CommandServiceProvider'
 
@@ -17,10 +18,10 @@ describe('CommandServiceProvider', () => {
     }
 
     mockContainer = {
-      singletonIf: vi.fn().mockReturnThis(),
       alias: vi.fn().mockReturnThis(),
+      singletonIf: vi.fn().mockReturnThis(),
       singleton: vi.fn().mockReturnThis(),
-      resolve: vi.fn()
+      make: vi.fn()
     }
 
     const options: CommandServiceProviderOptions = {
@@ -63,48 +64,29 @@ describe('CommandServiceProvider', () => {
     expect(serviceProvider.registerCommandUtils).toHaveBeenCalled()
   })
 
-  it('should retrieve the router class from the blueprint', () => {
-    const mockRouter = class MockRouter {}
-    mockBlueprint.get.mockReturnValue(mockRouter)
-
-    const router = (serviceProvider as any).router
-
-    expect(mockBlueprint.get).toHaveBeenCalledWith('stone.adapter.router')
-    expect(router).toBe(mockRouter)
-  })
-
   it('should determine if the provider should be skipped', () => {
     mockBlueprint.get.mockReturnValueOnce(NODE_CONSOLE_PLATFORM)
-    const result = serviceProvider.mustSkip()
-    expect(result).toBe(false)
+    expect(serviceProvider.mustSkip()).toBe(false)
 
     mockBlueprint.get.mockReturnValueOnce('other_platform')
-    const result2 = serviceProvider.mustSkip()
-    expect(result2).toBe(true)
+    expect(serviceProvider.mustSkip()).toBe(true)
+  })
+
+  it('should set the kernel router resolver to the blueprint', () => {
+    mockBlueprint.set = vi.fn((_key: string, resolver: Function) => resolver(mockContainer))
+    serviceProvider.onPrepare()
+    expect(mockBlueprint.set).toHaveBeenCalledWith('stone.kernel.routerResolver', expect.any(Function))
   })
 
   it('should register the router in the container', () => {
-    const mockRouter = class MockRouter {}
-    mockBlueprint.get.mockReturnValue(mockRouter)
-
     // @ts-expect-error - private method
     serviceProvider.registerRouter()
 
     expect(mockContainer.singletonIf).toHaveBeenCalledWith(
-      mockRouter,
+      CommandRouter,
       expect.any(Function)
     )
-    expect(mockContainer.alias).toHaveBeenCalledWith(mockRouter, 'router')
-  })
-
-  it('should not register the router if undefined', () => {
-    mockBlueprint.get.mockReturnValue(undefined)
-
-    // @ts-expect-error - private method
-    serviceProvider.registerRouter()
-
-    expect(mockContainer.singletonIf).not.toHaveBeenCalled()
-    expect(mockContainer.alias).not.toHaveBeenCalled()
+    expect(mockContainer.alias).toHaveBeenCalledWith(CommandRouter, 'commandRouter')
   })
 
   it('should register command utilities', () => {

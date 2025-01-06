@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
 
 ***
 
@@ -6,11 +6,13 @@
 
 # Interface: NodeCliEvent
 
+Defined in: [src/declarations.ts:36](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/declarations.ts#L36)
+
 Represents a generic Node Cli event as a key-value pair.
 
 ## Indexable
 
- \[`x`: `string`\]: `unknown`
+\[`x`: `string`\]: `unknown`
 
 ## Properties
 
@@ -18,9 +20,7 @@ Represents a generic Node Cli event as a key-value pair.
 
 > **\_extra**: (`string` \| `number`)[]
 
-#### Defined in
-
-[src/declarations.ts:30](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/declarations.ts#L30)
+Defined in: [src/declarations.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/declarations.ts#L39)
 
 ***
 
@@ -28,6 +28,4 @@ Represents a generic Node Cli event as a key-value pair.
 
 > **\_script**: `string`
 
-#### Defined in
-
-[src/declarations.ts:29](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/declarations.ts#L29)
+Defined in: [src/declarations.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/declarations.ts#L38)

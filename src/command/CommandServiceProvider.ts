@@ -4,9 +4,10 @@ import inquirer from 'inquirer'
 import { CommandInput } from './CommandInput'
 import { CommandOutput } from './CommandOutput'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
+import { IBlueprint, IProvider } from '@stone-js/core'
 import { Container } from '@stone-js/service-container'
-import { ClassType, IBlueprint, IProvider } from '@stone-js/core'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
+import { CommandRouter, CommandRouterOptions } from './CommandRouter'
 
 /**
  * CommandServiceProvider options.
@@ -48,15 +49,6 @@ export class CommandServiceProvider implements IProvider {
   }
 
   /**
-   * Retrieves the router classes.
-   *
-   * @returns Command Router constructor functions.
-   */
-  private get router (): ClassType {
-    return this.blueprint.get<ClassType>('stone.adapter.router')
-  }
-
-  /**
    * Determines if this provider should be skipped.
    * Useful for registering the provider based on platform.
    *
@@ -64,6 +56,13 @@ export class CommandServiceProvider implements IProvider {
    */
   mustSkip (): boolean {
     return this.blueprint.get<string>('stone.adapter.platform') !== NODE_CONSOLE_PLATFORM
+  }
+
+  /**
+   * Prepares the provider for service registration.
+   */
+  onPrepare (): void {
+    this.blueprint.set('stone.kernel.routerResolver', (container: Container) => container.make<CommandRouter>('commandRouter'))
   }
 
   /**
@@ -79,12 +78,9 @@ export class CommandServiceProvider implements IProvider {
    * Registers the router in the service container.
    */
   private registerRouter (): this {
-    if (this.router !== undefined) {
-      this
-        .container
-        .singletonIf(this.router, (container: Container) => Reflect.construct(this.router, [container]))
-        .alias(this.router, 'router')
-    }
+    this.container
+      .singletonIf(CommandRouter, container => CommandRouter.create(container.make<CommandRouterOptions>('container')))
+      .alias(CommandRouter, 'commandRouter')
 
     return this
   }

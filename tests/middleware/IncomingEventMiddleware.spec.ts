@@ -1,13 +1,12 @@
 import { NextPipe } from '@stone-js/pipeline'
-import { NodeCliAdapterContext } from '../../src/declarations'
-import { RawResponseWrapper } from '../../src/RawResponseWrapper'
 import { NodeCliAdapterError } from '../../src/errors/NodeCliAdapterError'
 import { IncomingEventMiddleware } from '../../src/middleware/IncomingEventMiddleware'
+import { NodeCliAdapterContext, NodeCliAdapterResponseBuilder } from '../../src/declarations'
 
 describe('IncomingEventMiddleware', () => {
   let middleware: IncomingEventMiddleware
   let mockContext: NodeCliAdapterContext
-  let next: NextPipe<NodeCliAdapterContext, RawResponseWrapper>
+  let next: NextPipe<NodeCliAdapterContext, NodeCliAdapterResponseBuilder>
 
   beforeEach(() => {
     middleware = new IncomingEventMiddleware()

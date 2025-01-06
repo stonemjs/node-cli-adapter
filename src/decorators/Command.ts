@@ -55,6 +55,6 @@ export interface CommandOptions {
  * }
  * ```
  */
-export const Command = <T extends ClassType = ClassType>(options: Partial<CommandOptions> = {}): ((target: T, context: ClassDecoratorContext<T>) => void) => {
+export const Command = <T extends ClassType = ClassType>(options: Partial<CommandOptions> = {}): ClassDecorator => {
   return setClassMetadata<T>(COMMAND_KEY, options)
 }

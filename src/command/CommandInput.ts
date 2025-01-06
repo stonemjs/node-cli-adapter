@@ -112,7 +112,7 @@ export class CommandInput {
   async choice (
     message: string,
     choices: string[],
-    fallbackIndex: number = 0,
+    fallbackIndex: number[] = [0],
     multiple: boolean = false
   ): Promise<string | string[]> {
     return await this.prompt<string | string[]>({

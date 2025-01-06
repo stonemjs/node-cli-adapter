@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: nodeCliAdapterResolver()
 
 > **nodeCliAdapterResolver**(`blueprint`): `IAdapter`
+
+Defined in: [src/resolvers.ts:18](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/resolvers.ts#L18)
 
 Adapter resolver for generic Node Cli adapter.
 
@@ -25,7 +27,3 @@ The `IBlueprint` providing configuration and dependencies.
 `IAdapter`
 
 An `NodeCliAdapter` instance.
-
-## Defined in
-
-[src/resolvers.ts:51](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/resolvers.ts#L51)

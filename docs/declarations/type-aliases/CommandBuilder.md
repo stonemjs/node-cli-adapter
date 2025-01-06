@@ -1,4 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.0**](../../README.md)
+[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
 
 ***
 
@@ -6,10 +6,8 @@
 
 # Type Alias: CommandBuilder
 
-> **CommandBuilder**: `Argv`\<`object`\>
+> **CommandBuilder**: `Argv`\<\{\}\>
+
+Defined in: [src/declarations.ts:13](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/declarations.ts#L13)
 
 Represents the CommandBuilder as yargs.
-
-## Defined in
-
-[src/declarations.ts:17](https://github.com/stonemjs/node-cli-adapter/blob/30743f7aaaae46db17826e810be4549d56406b6f/src/declarations.ts#L17)
