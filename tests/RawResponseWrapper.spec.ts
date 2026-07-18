@@ -17,12 +17,13 @@ describe('RawResponseWrapper', () => {
     expect(rawResponse).toEqual(0)
   })
 
-  it('should handle missing options gracefully', () => {
+  it('should degrade a missing/unusable exit code to a general failure (1), never NaN', () => {
     const wrapper = RawResponseWrapper.create({})
 
     const rawResponse = wrapper.respond()
 
-    expect(rawResponse).toBeNaN()
+    expect(rawResponse).toBe(1)
+    expect(rawResponse).not.toBeNaN()
     expect(rawResponse).not.toEqual(mockResponseOptions)
   })
 })

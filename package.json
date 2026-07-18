@@ -1,6 +1,6 @@
 {
   "name": "@stone-js/node-cli-adapter",
-  "version": "0.2.0",
+  "version": "0.8.0",
   "description": "CLI adapter for Stone.js. Enables command-line execution and custom commands using the Continuum Architecture.",
   "author": "Mr. Stone <evensstone@gmail.com>",
   "license": "MIT",
@@ -28,6 +28,7 @@
     "/dist"
   ],
   "type": "module",
+  "sideEffects": false,
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -59,10 +60,11 @@
     "prepare": "husky"
   },
   "peerDependencies": {
-    "@stone-js/core": "^0.2.1"
+    "@stone-js/core": "workspace:*"
   },
   "dependencies": {
     "chalk": "^5.3.0",
+    "deepmerge": "^4.3.1",
     "ora": "^8.1.1",
     "progress": "^2.0.3",
     "prompts": "^2.4.2",

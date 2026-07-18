@@ -1,3 +1,4 @@
+import { EXIT_FAILURE } from './constants'
 import { RawResponse } from './declarations'
 import { IRawResponseWrapper, RawResponseOptions } from '@stone-js/core'
 
@@ -60,6 +61,9 @@ export class RawResponseWrapper implements IRawResponseWrapper<RawResponse> {
    * ```
    */
   respond (): RawResponse {
-    return Number(this.options.exitCode)
+    // Guard against `NaN` when no middleware set an exit code (e.g. a custom error pipeline):
+    // an unusable code must degrade to a general failure, never to `NaN`.
+    const exitCode = Number(this.options.exitCode)
+    return Number.isFinite(exitCode) ? exitCode : EXIT_FAILURE
   }
 }

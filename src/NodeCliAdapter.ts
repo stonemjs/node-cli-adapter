@@ -14,17 +14,18 @@ import {
   AdapterEventBuilder,
   IncomingEventOptions
 } from '@stone-js/core'
-import { argv } from 'node:process'
+import process, { argv } from 'node:process'
 import { hideBin } from 'yargs/helpers'
 import yargs, { BuilderCallback } from 'yargs'
-import { COMMAND_NOT_FOUND_CODE } from './constants'
 import { CommandOptions } from './decorators/Command'
 import { RawResponseWrapper } from './RawResponseWrapper'
 import { NodeCliAdapterError } from './errors/NodeCliAdapterError'
+import { COMMAND_NOT_FOUND_CODE, EXIT_COMMAND_NOT_FOUND, EXIT_FAILURE, EXIT_SUCCESS } from './constants'
 
-// import { version } from '../package.json' // @ts-ignore - This import is handled by @rollup/plugin-json
-
-const version = '0.2.1'
+/**
+ * Fallback CLI version shown by `--version` when the app does not provide `stone.adapter.version`.
+ */
+const DEFAULT_VERSION = '0.8.0'
 
 /**
  * Node Cli Adapter for Stone.js.
@@ -105,7 +106,9 @@ NodeCliAdapterContext
   public async run<ExecutionResultType = RawResponse>(): Promise<ExecutionResultType> {
     await this.onStart()
 
-    const executionContext = yargs(hideBin(argv)).help().version(version).scriptName('stone')
+    const version = this.blueprint.get<string>('stone.adapter.version', DEFAULT_VERSION)
+    const scriptName = this.blueprint.get<string>('stone.adapter.scriptName', 'stone')
+    const executionContext = yargs(hideBin(argv)).help().version(version).scriptName(scriptName)
     const rawEvent = await this.registerAppCommands(executionContext).makeRawEvent(executionContext)
     const response = await this.eventListener(rawEvent, executionContext)
 
@@ -113,7 +116,40 @@ NodeCliAdapterContext
 
     response === COMMAND_NOT_FOUND_CODE && executionContext.showHelp()
 
+    // Close the Integration loop: a CLI's native effect is the process exit code. We apply a
+    // POSIX-normalized code to `process.exitCode` (rather than `process.exit`) so pending I/O
+    // still flushes and the shell/CI sees real success or failure instead of a silent 0.
+    this.applyExitCode(response)
+
     return response as ExecutionResultType
+  }
+
+  /**
+   * Apply the resolved response as the process exit code (POSIX-normalized).
+   *
+   * @param response - The raw response (an HTTP-ish status/exit code).
+   */
+  protected applyExitCode (response: RawResponse): void {
+    process.exitCode = this.toPosixExitCode(response)
+  }
+
+  /**
+   * Normalize an internal response code to a POSIX exit code (0-255).
+   *
+   * Success (0 or a 2xx status) → 0; a "command not found" marker → 127; anything else that is
+   * not a finite in-range code → 1 (general failure). Codes already in the 0-255 range pass
+   * through so a command can return a precise POSIX code.
+   *
+   * @param code - The raw response code.
+   * @returns The POSIX exit code.
+   */
+  protected toPosixExitCode (code: RawResponse): number {
+    const value = Number(code)
+    if (!Number.isFinite(value)) { return EXIT_FAILURE }
+    if (value === 0 || (value >= 200 && value < 300)) { return EXIT_SUCCESS }
+    if (value === COMMAND_NOT_FOUND_CODE) { return EXIT_COMMAND_NOT_FOUND }
+    if (Number.isInteger(value) && value > 0 && value <= 255) { return value }
+    return EXIT_FAILURE
   }
 
   /**

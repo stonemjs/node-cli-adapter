@@ -118,6 +118,23 @@ describe('NodeCliAdapter', () => {
     expect(spy).toHaveBeenCalled()
   })
 
+  it('should normalize response codes to POSIX exit codes and apply them to the process', () => {
+    const { adapter } = createAdapter()
+    const toPosix = (code: any): number => (adapter as any).toPosixExitCode(code)
+
+    expect(toPosix(0)).toBe(0) // success
+    expect(toPosix(200)).toBe(0) // 2xx status → success
+    expect(toPosix(204)).toBe(0)
+    expect(toPosix(COMMAND_NOT_FOUND_CODE)).toBe(127) // command not found
+    expect(toPosix(500)).toBe(1) // out-of-range error → general failure
+    expect(toPosix(NaN)).toBe(1) // unusable → general failure
+    expect(toPosix(2)).toBe(2) // already a POSIX code → passthrough
+
+    ;(adapter as any).applyExitCode(500)
+    expect(process.exitCode).toBe(1)
+    process.exitCode = 0 // reset so the test process itself exits clean
+  })
+
   it('should print help if command not found', async () => {
     AdapterEventBuilder.create = vi.fn(({ resolver }) => resolver({}))
     vi.mocked(yargs).mockReturnValue(mockBuilder)
